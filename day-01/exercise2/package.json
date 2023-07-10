@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "enum": "^3.0.4",
     "prompt-sync": "^4.2.0"
   }
 }
