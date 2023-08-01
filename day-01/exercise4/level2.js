@@ -47,4 +47,14 @@ function swapValues(x, y) {
   return [x,y];
 }
 console.log(swapValues(1,2));
+//Q5.
+console.log("Question 5 : ");
+function reverseArray(array){
+  var newarr=Array();
+  for(i=1;i<=array.length;i++){
+    newarr.push(array[array.length-i]);
+  }
+  return newarr;
+}
+console.log(reverseArray([1,2,3,4,5]));
 
