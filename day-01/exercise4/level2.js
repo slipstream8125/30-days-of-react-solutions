@@ -1,5 +1,6 @@
 const prompt = require("prompt-sync")({ sigint: true });
 const pad2 = require("pad2");
+const crypto = require("crypto");
 // Question 1
 console.log("Question 1 : ");
 function solveQuadratic(a = 0, b = 0, c = 0) {
@@ -57,4 +58,57 @@ function reverseArray(array){
   return newarr;
 }
 console.log(reverseArray([1,2,3,4,5]));
+// Q6.
+console.log("Question 6 : ");
+var inp=prompt("Enter Characters : ");
+var array=inp.split(" ");
+array[0]=array[0].slice(0,1).toUpperCase()+array[0].slice(1);
+console.log(array);
+// Q7.
+console.log("Question 7 : ")
+array=["Mangoes","Apples","Strawberries"];
+function addItem(item){
+  array.push(item);
+  return array;
+}
+console.log(addItem(prompt("Enter name of fruit to add : ")));
+// Q8.
+console.log("Question 8 : ");
+function removeItem(item){
+  var index=array.indexOf(item);
+  array.splice(index,1);
+  return array;
+}
+console.log(removeItem(prompt("Enter name of fruit to remove : ")));
 
+//Q9.
+console.log("Question 9 : ");
+function evensAndOdds(number){
+  var even=0;
+  var odd=0;
+  for(i=0;i<=number;i++){
+    if(i%2==0){
+      even++;
+    }
+    else{
+      odd++;
+    }
+  }
+  console.log("The number of odds are : "+odd);
+  console.log("The number of evens are : "+even);
+}
+evensAndOdds(100);
+//Q10.
+console.log("Question 10 : ");
+function sum(){
+  var sum=0;
+  for(i=0;i<arguments.length;i++){
+    sum+=arguments[i];
+  }
+  return sum;
+}
+console.log(sum(1,2,3));
+console.log(sum(1,2,3,4));
+// Q11.
+console.log("Question 11 : ");
+console.log(crypto.randomBytes(4.5).toString('hex'));

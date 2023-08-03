@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "crypto": "^1.0.1",
     "pad2": "^1.0.0",
     "prompt-sync": "^4.2.0"
   }
