@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import img from './images/img_avatar.png'
+import bootstrap from 'bootstrap'
 
 const rootElement = document.getElementById('root');
 const image=(
@@ -18,21 +19,21 @@ const name=(
 const skills=(
   <div class='flexbox'>
     <div>
-      <button>HTML</button>
+      <button type="button" class="btn btn-info">HTML</button>
     </div>
-    <div><button>CSS</button></div>
-    <div><button>Sass</button></div>
-    <div><button>JS</button></div>
-    <div><button>React</button></div>
-    <div><button>Redux</button></div>
-    <div><button>Node</button></div>
-    <div><button>MongoDB</button></div>
-    <div><button>Python</button></div>
-    <div><button>Flask</button></div>
-    <div><button>Django</button></div>
-    <div><button>NumPy</button></div>
-    <div><button>Pandas</button></div>
-    <div><button>Data Analysis</button></div>
+    <div><button  type="button" class="btn btn-info">CSS</button></div>
+    <div><button type="button" class="btn btn-info">Sass</button></div>
+    <div><button type="button" class="btn btn-info">JS</button></div>
+    <div><button type="button" class="btn btn-info">React</button></div>
+    <div><button type="button" class="btn btn-info">Redux</button></div>
+    <div><button type="button" class="btn btn-info">Node</button></div>
+    <div><button type="button" class="btn btn-info">MongoDB</button></div>
+    <div><button type="button" class="btn btn-info">Python</button></div>
+    <div><button type="button" class="btn btn-info">Flask</button></div>
+    <div><button type="button" class="btn btn-info">Django</button></div>
+    <div><button type="button" class="btn btn-info">NumPy</button></div>
+    <div><button type="button" class="btn btn-info">Pandas</button></div>
+    <div><button type="button" class="btn btn-info">Data Analysis</button></div>
   </div>
 )
 const app=(
