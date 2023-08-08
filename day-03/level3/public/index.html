@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Question 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
     </style>
@@ -13,33 +13,36 @@
         margin-left: 2rem;
         margin-right: 2rem;
         padding:2rem;
-        background-color: rgb(113, 228, 184);
-        text-align: center;
+        background-color: rgb(180, 180, 180);
+        /* text-align: center; */
         border-radius: 10px;
+        word-wrap: break-word; 
+        
       }
       .flexbox{
         display:flex;
-        justify-content: center;
+        word-wrap: break-word;
+        flex-wrap: wrap; 
       }
-      input{
-        margin-top: 30px;
-        margin-right: 10px;
-        padding: 10px;
-        border-radius: 10px;
+      img{
+        border-radius: 50%;
+        width: 12rem;
       }
       button{
-        margin-top: 50px;
+        margin-top: 10px;
+        margin-right: 10px;
         padding: 10px;
-        width : 300px;
-        background-color : rgb(226, 85, 85);
+        background-color : rgb(75, 228, 69);
         border-radius: 10px;
         color: white;
+        word-wrap: break-word; 
       }
     </style>
+    <title>Level 3</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="maindiv">
+    <div class = 'maindiv'>
       <div id="root"></div>
     </div>
   </body>
