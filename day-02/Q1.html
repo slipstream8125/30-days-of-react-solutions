@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+  </head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+</style>
+<style>
+      main{
+            background-color: bisque;
+      }
+      footer{
+            font-family:'Montserrat',sans-serif;
+            bottom:0;
+      }
+</style>
+  <body>
+    <div class="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const rootElement = document.querySelector('.root')
+      const name="Dhruv Hatkar"
+      const mainStyles={
+            color:'blue'
+      }
+      const main = (
+        <main style={mainStyles} class="main">
+            <h1>{name}</h1>
+            <p> Country : India</p>
+            <p>Title : Student</p>
+            <p>Gender : Male</p>
+            <p>Phone Number : 1234567890</p>
+      </main>
+      )
+      const footerStyle={
+            color:'red'
+      }
+      const footer=(
+            <footer style={footerStyle}class='footer'>
+                  This is a footer
+            </footer>
+      )
+      const appStyle={
+            fontFamily:'Roboto',
+      }
+      const app=(
+            <div class="app" style={appStyle}>
+            {main}
+            {footer}
+            </div>
+      )
+      ReactDOM.render(app, rootElement)
+    </script>
+  </body>
+</html>
