@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import img from './images/img_avatar.png'
+import image from './images/img_avatar.png'
 
 const rootElement = document.getElementById('root');
 const Image=()=>(
   <div>
-    <img src={img}></img>
+    <img src={image} alt="profile picture"></img>
   </div>
 )
 const Name=()=>(
