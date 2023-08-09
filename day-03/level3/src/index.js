@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import img from './images/img_avatar.png'
-import bootstrap from 'bootstrap'
 
 const rootElement = document.getElementById('root');
 const image=(
@@ -16,6 +15,7 @@ const name=(
     <h1>Skills</h1>
   </div>
 )
+
 const skills=(
   <div class='flexbox'>
     <div>
