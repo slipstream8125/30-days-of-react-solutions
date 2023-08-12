@@ -14,7 +14,9 @@ function hexaColor(){
 }
 
 const Numbers=({numbers})=>{
-  const number=numbers.map((numbers) => <div class='box' style={{backgroundColor: hexaColor()}}><p>{hexaColor()}</p></div>)
+  var hex;
+  const number=numbers.map((numbers) => <div class='box' style={{backgroundColor: hex=hexaColor()}}><p>{hex}</p></div>)
+  hex=hexaColor();
   return number
 }
 

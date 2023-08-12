@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 
-const root = document.getElementById('root');
+const root=createRoot(document.getElementById('root'));
 
 
 const HexaColor = (props) => <div style={{backgroundColor :props.data()}}>{props.data()}</div>
@@ -26,4 +26,6 @@ return(
     </div>
   )
 }
-ReactDOM.render(<App/>,root);
+root.render(
+  <App />
+);
