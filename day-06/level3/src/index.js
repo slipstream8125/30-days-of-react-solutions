@@ -2,7 +2,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';  
 import 'mdbreact/dist/css/mdb.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import {tenHighestPopulation} from  './ten_most_highest_populations.js'
 import { MDBContainer } from "mdbreact";
@@ -21,12 +20,11 @@ const Text=()=>(
 )
 const Chart=()=>{
   const datas=tenHighestPopulation;
-  var countries=Array();
-  var population=Array();
+  var countries=[];
+  var population=[] ;
   for (var c in datas) {
         countries.push(datas[c].country);
         population.push(datas[c].population);
-        console.log(c)
 }
 const dataset={
   labels:countries,
