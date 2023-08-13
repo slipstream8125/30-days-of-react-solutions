@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "country-code-lookup": "^0.1.0",
+    "flag-icon-css": "^4.1.7",
+    "react-country-flag": "^3.1.0"
+  }
+}
