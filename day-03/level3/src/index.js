@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 import img from './images/img_avatar.png'
+
 
 const rootElement = document.getElementById('root');
 const image=(
@@ -19,21 +21,21 @@ const name=(
 const skills=(
   <div class='flexbox'>
     <div>
-      <button type="button" class="btn btn-info">HTML</button>
+      <Button variant="contained">HTML</Button>
     </div>
-    <div><button  type="button" class="btn btn-info">CSS</button></div>
-    <div><button type="button" class="btn btn-info">Sass</button></div>
-    <div><button type="button" class="btn btn-info">JS</button></div>
-    <div><button type="button" class="btn btn-info">React</button></div>
-    <div><button type="button" class="btn btn-info">Redux</button></div>
-    <div><button type="button" class="btn btn-info">Node</button></div>
-    <div><button type="button" class="btn btn-info">MongoDB</button></div>
-    <div><button type="button" class="btn btn-info">Python</button></div>
-    <div><button type="button" class="btn btn-info">Flask</button></div>
-    <div><button type="button" class="btn btn-info">Django</button></div>
-    <div><button type="button" class="btn btn-info">NumPy</button></div>
-    <div><button type="button" class="btn btn-info">Pandas</button></div>
-    <div><button type="button" class="btn btn-info">Data Analysis</button></div>
+    <div><Button variant="contained">CSS</Button></div>
+    <div><Button variant="contained">Sass</Button></div>
+    <div><Button variant="contained">JS</Button></div>
+    <div><Button variant="contained">React</Button></div>
+    <div><Button variant="contained">Redux</Button></div>
+    <div><Button variant="contained">Node</Button></div>
+    <div><Button variant="contained">MongoDB</Button></div>
+    <div><Button variant="contained">Python</Button></div>
+    <div><Button variant="contained">Flask</Button></div>
+    <div><Button variant="contained">Django</Button></div>
+    <div><Button variant="contained">NumPy</Button></div>
+    <div><Button variant="contained">Pandas</Button></div>
+    <div><Button variant="contained">Data Analysis</Button></div>
   </div>
 )
 const app=(
