@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import asabenehImage from './images/asabeneh.jpg'
-import {color as colors} from './data/color.js'
+import {timeOfDay}  from  './data/timeOfDay.js'
 // Fuction to show month date year
 
 const showDate = (time) => {
@@ -26,25 +26,30 @@ const showDate = (time) => {
   const date = time.getDate()
   return ` ${month} ${date}, ${year}`
 }
-
 // User Card Component
-const UserCard = ({ user: { firstName, lastName, image } }) => (
-  <div className='user-card'>
-    <img src={image} alt={firstName} />
-    <h2>
-      {firstName}
-      {lastName}
-    </h2>
+const UserCard = ({count}) => (
+  <div>
+  <div className='user-card' >
+    {/* <img src={image} alt={name} /> */}
+
+    <h4>{timeOfDay[count].name}</h4>
+  </div>
   </div>
 )
-
+const Count = ({ count, addOne}) => (
+  <div>
+    <div>
+      <Button text='Select Time of Day' onClick={addOne} style={buttonStyles} />
+    </div>
+  </div>
+)
 // A button component
 const Button = ({ text, onClick, style }) => (
   <button style={style} onClick={onClick}>
     {text}
   </button>
 )
-
+console.log(timeOfDay[0].flag);
 // CSS styles in JavaScript Object
 const buttonStyles = {
   backgroundColor: '#61dbfb',
@@ -89,28 +94,8 @@ class Header extends React.Component {
   }
 }
 
-const Count = ({ count, changeBackground }) => (
-  <div>
-    <h1>{count} </h1>
-    <div>
-      <Button text='Toggle Theme' onClick={changeBackground} style={buttonStyles} />
-      {/* <Button text='-1' onClick={minusOne} style={buttonStyles} /> */}
-    </div>
-  </div>
-)
-
 // TechList Component
 // class base component
-class TechList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    const { techs } = this.props
-    const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
-    return techsFormatted
-  }
-}
 
 // Main Component
 // Class Component
@@ -130,25 +115,14 @@ class Main extends React.Component {
       minusOne,
     } = this.props
     return (
-      <main>
-        <div className='main-wrapper' style={{backgroundColor:colors[count].bgcolor}}>
-          <p>Prerequisite to get started react.js:</p>
+      <main style={{backgroundImage:timeOfDay[count].image,width:'100%',height: '500px',backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'auto'}}>
+        <div className='main-wrapper'>
           <ul>
-            <TechList techs={techs} />
+            {/* <TechList techs={techs} /> */}
           </ul>
-          <UserCard user={user} />
-          <Button
-            text='Greet People'
-            onClick={greetPeople}
-            style={buttonStyles}
-          />
-          <Button text='Show Time' onClick={handleTime} style={buttonStyles} />
-          <Button
-            text='Change Background'
-            onClick={changeBackground}
-            style={buttonStyles}
-          />
-          <Count count={count} changeBackground={changeBackground}/>
+          <UserCard count={count}/>
+
+          <Count count={count} addOne={addOne}/>
         </div>
       </main>
     )
@@ -201,20 +175,17 @@ class App extends React.Component {
     const date = time.getDate()
     return ` ${month} ${date}, ${year}`
   }
-  changeBackground = () => {
-    this.setState({ count: (this.state.count + 1)%2 })
+  addOne = () => {
+    this.setState({ count: (this.state.count + 1)%4 })
   }
 
-  // method which subtract one to the state
-  minusOne = () => {
-    this.setState({ count: this.state.count - 1 })
-  }
   handleTime = () => {
     alert(this.showDate(new Date()))
   }
   greetPeople = () => {
     alert('Welcome to 30 Days Of React Challenge, 2020')
   }
+  changeBackground = () => {}
   render() {
     const data = {
       welcome: 'Welcome to 30 Days Of React',
@@ -229,19 +200,15 @@ class App extends React.Component {
     const techs = ['HTML', 'CSS', 'JavaScript']
     const date = new Date()
     // copying the author from data object to user variable using spread operator
-    const user = { ...data.author, image: asabenehImage }
 
     return (
       <div className='app'>
         {this.state.backgroundColor}
         <Header data={data} />
         <Main
-          user={user}
-          techs={techs}
-          handleTime={this.handleTime}
-          greetPeople={this.greetPeople}
-          changeBackground={this.changeBackground}
           addOne={this.addOne}
+          minusOne={this.minusOne}
+          count={this.state.count}
         />
         <Footer date={new Date()} />
       </div>

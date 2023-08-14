@@ -1,10 +1,7 @@
 // index.js
 import React from 'react'
 import ReactDOM from 'react-dom'
-import asabenehImage from './images/asabeneh.jpg'
 import {countries}  from  './data/countries.js'
-import ReactCountryFlag from "react-country-flag"
-import lookup from 'country-code-lookup'
 // Fuction to show month date year
 
 const showDate = (time) => {
