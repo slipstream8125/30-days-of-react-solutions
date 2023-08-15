@@ -179,7 +179,7 @@ class App extends Component {
     return (
       <div className='App'>
         <h3>Add Student</h3>
-        <form onSubmit={this.handleSubmit} noValidate>
+        <form onSubmit={this.handleSubmit} >
           <div className='row'>
             <div className='form-group'>
               <label htmlFor='firstName'>First Name </label>
