@@ -1,7 +1,6 @@
 // index.js
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import validator from 'validator';
 
 const options = [
   {
@@ -91,20 +90,17 @@ class App extends Component {
       email: '',
       tel: '',
       weight:'',
-      date:'',
+
     }
-    if(validator.isMobilePhone((this.state.tel)===false)){
+    if((/[0-9]+$/.test((this.state.tel)===false))){
       errors.tel="Invalid Number"
     }
     console.log(this.state.tel)
-    if(validator.isNumeric(this.state.weight===false)){
+    if((/[0-9]+$/.test(this.state.weight===false))){
       errors.weight="Invalid Weight"
     }
-    if((validator.isEmail(this.state.email)===false)){
+    if((/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(this.state.email)===false)){
       errors.email="Invalid Email"
-    }
-    if(validator.isDate(this.state.date)===false){
-      errors.date="Invalid Date"
     }
     if (
       (this.state.touched.firstName && this.state.firstName.length < 3) ||
@@ -175,7 +171,7 @@ class App extends Component {
     // accessing the state value by destrutcturing the state
     // the noValidate attribute on the form is to stop the HTML5 built-in validation
 
-    const { firstName,lastName,email,tel,date} = this.validate()
+    const { firstName,lastName,email,tel} = this.validate()
     return (
       <div className='App'>
         <h3>Add Student</h3>
@@ -243,8 +239,7 @@ class App extends Component {
               value={this.state.dateOfBirth}
               onChange={this.handleChange}
               placeholder='Date of Birth'
-            /><br />
-            <small>{date}</small>
+            />
           </div>
           <div className='form-group'>
             <label htmlFor='favoriteColor'>Favorite Color</label>
@@ -267,8 +262,7 @@ class App extends Component {
               onChange={this.handleChange}
               onBlur={this.handleBlur}
               placeholder='Weight in Kg'
-            /><br />
-            <small>{weight}</small>
+            />
           </div>
           <div>
             <label htmlFor='country'>Country</label> <br />
