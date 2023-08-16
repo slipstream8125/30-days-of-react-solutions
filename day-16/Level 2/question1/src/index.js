@@ -39,7 +39,7 @@ const formElement = ({ placeholder, handleChange, handleBlur, value, name, type 
 };
 const elementswithStyles = (CompParam, type, name) => {
   return (props) => {
-    const { handleChange, handleBlur, value } = props; // Extract props
+    const {value} = props; // Extract props
     return <CompParam {...props} type={type} name={name} value={value} />;
   };
 };
@@ -114,17 +114,17 @@ class App extends Component {
       firstName: '',
       lastName : '',
       email: '',
-      tel: '0',
+      tel: ' ',
       weight:'',
       date:'',
     }
-    if(validator.isMobilePhone(this.state.tel)===false){
+    if(this.state.touched.tel && validator.isMobilePhone(this.state.tel)===false){
       errors.tel="Invalid Number"
     }
-    if(validator.isNumeric(this.state.weight)===false){
+    if(this.state.touched.weight && validator.isNumeric(this.state.weight)===false){
       errors.weight="Invalid Weight"
     }
-    if((validator.isEmail(this.state.email)===false)){
+    if(this.state.touched.email && (validator.isEmail(this.state.email)===false)){
       errors.email="Invalid Email"
     }
     if (
