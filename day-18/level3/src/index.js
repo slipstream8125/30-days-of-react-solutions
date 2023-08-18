@@ -2,28 +2,18 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
-const Country = ({ country: { name, life_span},length }) => {
-  var totalalife=0;
-  // for(var i=0;i<length;i++){
-   
-  
-  // totalalife/=length
-  return (
-    <div className='country'>
-      <div className='country_flag'>
-        {/* <img src={flag} alt={name} /> */}
-      </div>
-      <h3 className='country_name'>{length+" "+name +" "+(totalalife)}</h3>
-      <div class='country_text'>
-        {/* <p>
-          <span>Population: </span>
-          {population} */}
-        {/* </p> */}
-      </div>
-    </div>
+const PrintList=(props)=>{
+  return(
+    <div>
+      <ul>
+    {props.array.map(item=>(
+      <li>{item}</li>
+    ))
+    }
+    </ul>
+  </div>
   )
 }
-
 class App extends Component {
   state = {
     data: [],
@@ -74,6 +64,40 @@ class App extends Component {
     // console.log(this.state.data);
     return parseFloat(String(avgwgt),2);
   }
+  getCountries(){
+    var countries={};
+    var maxval=0;
+    var key;
+    var maxkey;
+    for(var i=0;i<this.state.data.length;i++){
+      key=this.state.data[i].origin;
+      if(!(key in countries)){
+        countries[key]=1;
+      }
+      else{
+        countries[key]+=1;
+      }
+    }
+    for(const [key,value] of Object.entries(countries)){
+      if(value>maxval){
+        maxval=value;
+        maxkey=key
+      }
+    }
+    const array=Object.keys(countries).sort(function(a,b){
+    if (a > b) {
+      return -1;
+    }
+    if (a < b) {
+      return 1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+    console.log(countries);
+    return [Object.keys(countries).length,maxkey,array];
+  }
   render() {
     // this.getlifespandata()
     return (
@@ -83,6 +107,11 @@ class App extends Component {
         <div>
           <h3>There are <span class='dot'>{this.state.data.length}</span> cats in the api</h3>
           <p>On average a cat can weight about <span class="dot">{this.getWeight()}</span>Kg and live <span class="dot">{this.getlifespandata()}</span>years.</p>
+          <p> <span class="dot">{this.getCountries()[0]}</span> countries have cat breeds</p>
+          <p>{this.getCountries()[1]} has the highest no of breeds</p>
+          <br/>
+          <p>The list of countries in the ascending order of their number of breeds is : </p>
+          <PrintList array={this.getCountries()[2]}/>
         </div>
       </div>
     )
