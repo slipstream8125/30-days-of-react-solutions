@@ -2,32 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
-const Country = ({ country: { name, life_span},length }) => {
-  var totalalife=0;
-  // for(var i=0;i<length;i++){
-   
-  
-  // totalalife/=length
-  return (
-    <div className='country'>
-      <div className='country_flag'>
-        {/* <img src={flag} alt={name} /> */}
-      </div>
-      <h3 className='country_name'>{length+" "+name +" "+(totalalife)}</h3>
-      <div class='country_text'>
-        {/* <p>
-          <span>Population: </span>
-          {population} */}
-        {/* </p> */}
-      </div>
-    </div>
-  )
-}
-
 class App extends Component {
   state = {
     data: [],
-    avglife: 0,
   }
 
   componentDidMount() {
@@ -56,8 +33,6 @@ class App extends Component {
       avglif+=alife;
     }
     avglif=Math.round((avglif/this.state.data.length)*100)/100;
-    // console.log(avglif/this.state.data.length);
-    // console.log(this.state.data);
     return parseFloat(String(avglif),2);
   }
   getWeight(){
@@ -70,12 +45,9 @@ class App extends Component {
       avgwgt+=awgt;
     }
     avgwgt=Math.round((avgwgt/this.state.data.length)*100)/100;
-    // console.log(avglif/this.state.data.length);
-    // console.log(this.state.data);
     return parseFloat(String(avgwgt),2);
   }
   render() {
-    // this.getlifespandata()
     return (
       <div className='App'>
         <h1>30 Days of React</h1>
