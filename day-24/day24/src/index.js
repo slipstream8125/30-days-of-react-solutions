@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { MDBContainer } from "mdbreact";
+import { Bar} from "react-chartjs-2";
 import axios from 'axios'
-import ReactDOM from 'react-dom'
+import {createRoot} from 'react-dom/client'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import SearchField from "react-search-field";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -12,7 +15,10 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
+  transition: "transform 0.15s ease-in-out",
+  "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
 }));
+
 const Country = ({ country}) => {
   // console.log(country.currencies.name)
   var language;
@@ -48,10 +54,13 @@ const Country = ({ country}) => {
   )
 }
 
-const App = (props) => {
+const App = () => {
   // setting initial state and method to update state
   const [data, setData] = useState([])
-
+  const [q,setq]=useState(false);
+  const [search]=useState(["capital","name"]);
+  const [searchValue, setSearchValue] = useState("");
+  
   useEffect(() => {
     fetchData()
   }, [])
@@ -66,29 +75,45 @@ const App = (props) => {
       console.log(error)
     }
   }
+  
+  const handleSearchChange = (value) => {
+    setSearchValue(value);
+  };
+  const filteredData = data.filter((country) => {
+    return country.name.toLowerCase().includes(searchValue.toLowerCase());
+  });
 
+// console.log(chartData.labels+"  "+chartOptions.title)
   return (
     <div className='App'>
-      <h1>Fetching Data Using Hook</h1>
-      <h1>Calling API</h1>
+      <div style={{backgroundColor:'#F0F0F0'}}>
+      <h1 className='header_name'>World Countries Data</h1>
+      <h2>Currently, we have {data.length} countries</h2>
+      </div>
       <div>
-        <p>There are {data.length} countries in the api</p>
+        <br/>
+        <div className='search'>
+        <SearchField
+          placeholder="Search"
+          onChange={handleSearchChange}
+          value={searchValue}
+        />
+        </div>
     <div className='maindiv'>
         <div className='countries-wrapper'>
       <Box sx={{ flexGrow: 1,}} >
       <Grid container spacing={3} sx={{alignItems:'center',justifyContent:'center'}}>
-          {data.map((country) => (
-            <Country country={country} />
+      {filteredData.map((country) => (
+                  <Country key={country.name} country={country} />
           ))}
         </Grid>
     </Box>
         </div>
         </div>
+
       </div>
     </div>
   )
 }
-
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
-
+const root=createRoot(document.getElementById('root'))
+root.render(<App/>)
