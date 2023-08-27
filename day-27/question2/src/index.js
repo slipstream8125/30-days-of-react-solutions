@@ -59,7 +59,7 @@ const App=()=>{
   <p>Hexadecimal Colors</p>
   <div style={{verticalAlign: 'middle',justifyContent: 'center'}}>
   <TextField id="outlined-basic" label="" variant="outlined" sx={{width:'40%'}} onChange={(e)=>setNumber(e.target.value)}/>
-  <Button variant='contained' sx={{marginLeft:'10px',height:'54px'}}>Generate</Button>
+  <Button variant='contained' sx={{marginLeft:'10px',height:'54px'}} >Generate</Button>
   </div>
   </div>
     <br/>
